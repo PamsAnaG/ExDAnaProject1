@@ -1,4 +1,4 @@
-
+unzip("household_power_consumption.txt.zip")
 hhp <- read.table("household_power_consumption.txt", header = TRUE, sep = ";", na.strings = "?")
 library(lubridate)
 hhp$Date <- dmy(hhp$Date)
