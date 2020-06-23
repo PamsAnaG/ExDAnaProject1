@@ -1,0 +1,8 @@
+unzip("household_power_consumption.txt.zip")
+hhp <- read.table("household_power_consumption.txt", header = TRUE, sep = ";", na.strings = "?")
+library(lubridate)
+hhp$Date <- dmy(hhp$Date)
+hhpSub <- subset(hhp, Date >= "2007/02/01" & Date <= "2007/02/02")
+png(filename = "Plot1.png", bg = "transparent")
+hist(hhpSub$Global_active_power, freq = TRUE, col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)", ylab = "Frequency")
+dev.off()
